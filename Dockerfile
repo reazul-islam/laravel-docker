@@ -1,4 +1,4 @@
-FROM php:7.2.18-fpm-stretch
+FROM php:7.3-fpm-stretch
 RUN apt-get update -y && apt-get install -y openssl zip unzip
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN docker-php-ext-install pdo mbstring pdo_mysql mysqli
