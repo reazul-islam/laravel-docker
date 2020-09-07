@@ -17,12 +17,10 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      - uses: mr-smithers-excellent/docker-build-push@v4
-        name: Build & push Docker image
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1
         with:
-          image: muradreazul/testimage
-          tag: latest
-          registry: https://registry-1.docker.io/
-          dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: muradreazul/testimage
+          tags: latest
