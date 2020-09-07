@@ -22,7 +22,7 @@ jobs:
         with:
           image: muradreazul/testimage
           tag: latest
-          registry: https://hub.docker.com/repository/docker/muradreazul/testimage
+          registry: https://index.docker.io/v2/
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
