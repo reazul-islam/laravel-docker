@@ -18,5 +18,16 @@ pipeline {
       }
     }
 
+    stage('Push to docker') {
+      environment {
+        DOCKER_USERNAME = 'muradreazul'
+        DOCKER_PASSWORD = 'muradhasan00'
+      }
+      steps {
+        sh '''docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+docker push muradreazul/devpro'''
+      }
+    }
+
   }
 }
